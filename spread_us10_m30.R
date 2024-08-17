@@ -1,4 +1,4 @@
-setwd("/Users/takayukitamura/Documents/R_Computing/us_rates")
+setwd("/Users/takayukitamura/Documents/R_Computing/us_rates/spread_us10_m30")
 library(tidyverse)
 library(glue)
 library(ggtext)
@@ -6,7 +6,7 @@ library(patchwork)
 library(scales)
 
 ## download data from csv file
-rates <- read.csv("data/us_10y_30y.csv") %>% 
+rates <- read.csv("/Users/takayukitamura/Documents/R_Computing/us_rates/data/us_10y_30y.csv") %>% 
   select(-X)
 
 ## add the rarest data 
