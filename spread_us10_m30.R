@@ -117,7 +117,7 @@ d +  labs(title = "30 years mortgage yield spread over 10 years treasuary notes"
   theme(plot.title.position = "plot",
         plot.subtitle = element_text(face = "italic"))
 
-ggsave("boxplots of spread indicating some impacts from Fed's MBS unwinding.png", width = 5, height = 4)
+ggsave("figures/boxplots of spread indicating some impacts from Fed's MBS unwinding.png", width = 5, height = 4)
 
 ## Add z-score on the data_frame
 z_score <- (spread - mean(spread))/sd(spread)
@@ -210,7 +210,7 @@ e + geom_text(aes(x = 1.7, y = 450, label = round(rate_stats$mean_rate, 2))) +
   geom_text(aes(x = z3, y = 400, label = z3)) +
   geom_text(aes(x = z4, y = 350, label = z4)) 
 
-ggsave("30y_mortgage_spread_10TB.png", height = 5, width = 5)
+ggsave("figures/30y_mortgage_spread_10TB.png", height = 5, width = 5)
 
 e + geom_text(aes(x = 1.7, y = 470, label = glue("mean = {round(rate_stats$mean_rate, 2)}"))) +
   geom_text(aes(x = z1, y = 400, label = glue("mean + SD = {z1}"))) +
