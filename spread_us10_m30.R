@@ -10,9 +10,6 @@ rates <- read.csv("data/us_10y_30y.csv") %>%
   select(-X)
 
 ## add the rarest data 
-# data_07112024 <- data.frame("date" = c("2024-06-27", "2024-07-03", "2024-07-11"),
-#                             "mortgage30" = c(6.86, 6.95, 6.89),
-#                             "treasury10" = c(4.44, 4.36, 4.217))
 updates <- tribble(~date, ~mortgage30, ~treasury10,
                    "2024-06-27", 6.86, 4.44,
                    "2024-07-03", 6.95, 4.36,
@@ -79,7 +76,6 @@ rates %>%
 
 
 ##historical spread with latest data
-
 rates$latest_data <- ifelse(rates$date == max(rates$date), TRUE, FALSE)
 
 rates %>% 
@@ -112,10 +108,6 @@ d <- ggplot(rates, aes(x = period, y = spread, fill = period)) +
                      labels = label_comma(accuracy = 0.1)) +
   labs(x = NULL,
        y = "spread")
-
-
-  # theme(axis.text.x = element_blank(),  # Remove x-axis text
-  #       axis.ticks.x = element_blank())
 
 
 d +  labs(title = "30 years mortgage yield spread over 10 years treasuary notes",
