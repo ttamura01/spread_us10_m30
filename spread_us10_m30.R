@@ -18,7 +18,8 @@ updates <- tribble(~date, ~mortgage30, ~treasury10,
                    "2024-07-25", 6.78, 4.28,
                    "2024-08-01", 6.73, 4.09,
                    "2024-08-08", 6.47, 3.98,
-                   "2024-08-13", 6.47, 3.85)
+                   "2024-08-15", 6.49, 3.92,
+                   "2024-08-22", 6.46, 3.86)
 
 ##Combine the two data
 rates <- rbind(rates, updates)
@@ -71,7 +72,10 @@ ggsave("figures/us_30y_10y_spread.png", height = 4.5, width = 6)
 
 rates %>% 
   ggplot(aes(x = date, y = spread))+
-  geom_line()
+  geom_line() +
+  labs(title = "US 30-year mortgage yield spread over 10-year treasury notes",
+       caption = "FRED(Federal Reserve Economic Data), WSJ",
+       x = NULL, y = NULL)
 
 
 
