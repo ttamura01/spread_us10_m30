@@ -4,6 +4,7 @@ library(glue)
 library(ggtext)
 library(patchwork)
 library(scales)
+library(plotly)
 
 ## download data from csv file
 rates <- read.csv("/Users/takayukitamura/Documents/R_Computing/us_rates/data/us_10y_30y.csv") %>% 
@@ -20,7 +21,8 @@ updates <- tribble(~date, ~mortgage30, ~treasury10,
                    "2024-08-08", 6.47, 3.98,
                    "2024-08-15", 6.49, 3.92,
                    "2024-08-22", 6.46, 3.86,
-                   "2024-08-29", 6.35, 3.87)
+                   "2024-08-29", 6.35, 3.87,
+                   "2024-09-05", 6.35, 3.73)
 
 ##Combine the two data
 rates <- rbind(rates, updates)
@@ -70,6 +72,7 @@ long_data %>%
   )
 
 ggsave("figures/us_30y_10y_spread.png", height = 4.5, width = 6)  
+
 
 rates %>% 
   ggplot(aes(x = date, y = spread))+
